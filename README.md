@@ -1,4 +1,5 @@
 # Processo Seletivo – Intensivo Maker | IoT
+
 ## Etapa Prática – Sistemas Embarcados
 
 Bem-vindo(a) à **etapa prática do processo seletivo para o Intensivo Maker | IoT**.
@@ -19,14 +20,15 @@ Siga atentamente os passos abaixo — eles fazem parte do processo de aprendizag
 
 ### 1️⃣ Criação de Conta no GitHub
 
-1. Acesse: https://github.com  
-2. Clique em **Sign up**  
-3. Crie sua conta gratuita seguindo as instruções da plataforma  
+1. Acesse: <https://github.com>
+2. Clique em **Sign up**
+3. Crie sua conta gratuita seguindo as instruções da plataforma
 
 > 📌 O GitHub será utilizado para:
-> - Envio do seu projeto  
-> - Versionamento do código  
-> - Correção e validação automática via GitHub Actions  
+>
+> - Envio do seu projeto
+> - Versionamento do código
+> - Correção e validação automática via GitHub Actions
 
 ---
 
@@ -35,15 +37,18 @@ Siga atentamente os passos abaixo — eles fazem parte do processo de aprendizag
 O **Git** é a ferramenta responsável pelo controle de versões do seu código.
 
 ### Windows
+
 Baixe e instale o **Git Bash**:  
-https://git-scm.com/downloads
+<https://git-scm.com/downloads>
 
 ### Linux / macOS
+
 Verifique se o Git já está instalado:
 
 ```bash
 git --version
 ```
+
 > Caso não esteja, instale pelo gerenciador de pacotes do seu sistema.
 
 ## ⚙ Passo 1 – Preparando o Ambiente
@@ -51,10 +56,10 @@ git --version
 Para desenvolver o desafio, você deverá criar uma cópia deste repositório no seu GitHub.
 
 ### 1️⃣ Fork do Repositório
+
 No canto superior direito desta página, clique em Fork
 
 <img width="219" height="45" alt="image" src="https://github.com/user-attachments/assets/5d629626-513a-445c-ba0f-e5bb3e225187" />
-
 
 Uma cópia do repositório será criada no seu perfil do GitHub
 
@@ -116,12 +121,13 @@ A simulação do projeto será executada automaticamente via GitHub Actions, uti
 
 Para isso, você precisa gerar uma API Key.
 
-1. Acesse: https://wokwi.com/dashboard/ci
+1. Acesse: <https://wokwi.com/dashboard/ci>
 2. Faça login (Google ou GitHub)
 3. Clique em Generate API Token
 4. Copie a chave gerada (exemplo: wokwi-xxxxxxxx)
 
->⚠️ Importante
+> ⚠️ Importante
+
 - Nunca faça commit dessa chave
 - Ela deve ser armazenada apenas como secret no GitHub
 
@@ -190,6 +196,7 @@ git add .
 git commit -m "Descrição clara do que foi feito"
 git push
 ```
+
 ### ⚙ Execução Automática (GitHub Actions)
 
 A cada push, o GitHub Actions irá automaticamente:
@@ -198,7 +205,7 @@ A cada push, o GitHub Actions irá automaticamente:
 - Rodar a simulação via Wokwi CLI
 - Validar que o projeto executa sem erros
 
-### 📌 Caso algo falhe:
+### 📌 Caso algo falhe
 
 - Vá até a aba Actions
 - Analise os logs da execução
@@ -221,8 +228,8 @@ Esta etapa será avaliada considerando:
 
 Após concluir o desenvolvimento:
 
-1. Verifique se o projeto **executa sem erros** nas GitHub Actions  
-2. Confirme que todos os arquivos obrigatórios estão presentes  
+1. Verifique se o projeto **executa sem erros** nas GitHub Actions
+2. Confirme que todos os arquivos obrigatórios estão presentes
 3. Copie o link do **seu repositório no GitHub**
 
 📤 Envie o link conforme as orientações do processo seletivo na plataforma **Moodle**.
@@ -244,8 +251,8 @@ Preencha todas as seções abaixo de forma **clara, objetiva e técnica**.
 
 ### 👤 Identificação do Candidato
 
-- **Nome completo:**  
-- **GitHub:**  
+- **Nome completo:**
+- **GitHub:**
 
 ---
 
@@ -253,8 +260,8 @@ Preencha todas as seções abaixo de forma **clara, objetiva e técnica**.
 
 Descreva, em poucas palavras:
 
-- Qual é o objetivo do seu projeto  
-- O que o sistema embarcado simulado faz  
+- Qual é o objetivo do seu projeto
+- O que o sistema embarcado simulado faz
 - Como o usuário interage com ele (se aplicável)
 
 ---
@@ -263,9 +270,9 @@ Descreva, em poucas palavras:
 
 Explique a arquitetura lógica do seu projeto, abordando:
 
-- Fluxo principal do programa (`main.py`)  
-- Estrutura de estados, loops ou temporizações  
-- Como os componentes interagem entre si  
+- Fluxo principal do programa (`main.py`)
+- Estrutura de estados, loops ou temporizações
+- Como os componentes interagem entre si
 
 Se desejar, utilize tópicos ou um pequeno diagrama em texto.
 
@@ -275,9 +282,9 @@ Se desejar, utilize tópicos ou um pequeno diagrama em texto.
 
 Liste os principais componentes definidos no `diagram.json`, por exemplo:
 
-- Tipo de placa utilizada  
-- LEDs, botões, sensores, atuadores, etc.  
-- Função de cada componente no sistema  
+- Tipo de placa utilizada
+- LEDs, botões, sensores, atuadores, etc.
+- Função de cada componente no sistema
 
 ---
 
@@ -285,9 +292,9 @@ Liste os principais componentes definidos no `diagram.json`, por exemplo:
 
 Explique brevemente decisões importantes tomadas durante o desenvolvimento, como:
 
-- Organização do código  
-- Uso de funções, estados ou constantes  
-- Estratégias para temporização ou controle lógico  
+- Organização do código
+- Uso de funções, estados ou constantes
+- Estratégias para temporização ou controle lógico
 
 ---
 
@@ -295,9 +302,9 @@ Explique brevemente decisões importantes tomadas durante o desenvolvimento, com
 
 Descreva o comportamento final do sistema:
 
-- O que funciona corretamente  
-- Quais requisitos foram atendidos  
-- Resultado observado na simulação do Wokwi  
+- O que funciona corretamente
+- Quais requisitos foram atendidos
+- Resultado observado na simulação do Wokwi
 
 ---
 
@@ -305,10 +312,10 @@ Descreva o comportamento final do sistema:
 
 Utilize este espaço para comentar, se desejar:
 
-- Dificuldades encontradas  
-- Limitações da solução  
-- Melhorias que você faria com mais tempo  
-- Principais aprendizados durante o desafio  
+- Dificuldades encontradas
+- Limitações da solução
+- Melhorias que você faria com mais tempo
+- Principais aprendizados durante o desafio
 
 ---
 
@@ -328,4 +335,65 @@ Em caso de dúvidas:
 
 Boa sorte no processo seletivo.
 Mostre sua capacidade de pensar como um engenheiro de sistemas embarcados.
-****
+
+## 📋 Especificação dos Testes Automatizados (Wokwi CI)
+
+Para que o projeto seja validado com sucesso na esteira de integração contínua (CI), o firmware (C/C++ no Arduino/ESP32) deve interagir corretamente com as leituras do sensor de peso (**HX711**) e enviar as mensagens de status exatas através da **Porta Serial**.
+
+Abaixo estão detalhados os 3 cenários de teste configurados e o comportamento que o seu programa deve apresentar para atender a cada um deles:
+
+---
+
+### 1. Teste de Consumo Parcial (Sem Disparo Prematuro)
+
+- **Comportamento do Simulador:** O ambiente inicia com a carga cheia (5000g) e, em seguida, reduz o peso pela metade (2500g).
+- **O que o seu firmware deve fazer:**
+  - Logo na inicialização, envie obrigatoriamente a mensagem `"Sistema Kanban Inicializado"` na Serial.
+  - Ao ler 2500g, o sistema deve calcular que o valor ainda está acima do limite mínimo de segurança (zona segura).
+  - O firmware **não deve** disparar nenhum alerta de reposição. Em vez disso, deve continuar a reportar o estado normal na serial. O teste espera ler exatamente a seguinte mensagem:
+
+    ```text
+    Status: Estoque Regular (2500g)
+    ```
+
+    _(Nota: Certifique-se de que a string com o valor do peso seja atualizada dinamicamente conforme a leitura do sensor)._
+
+---
+
+### 2. Teste de Ciclo Completo (Consumo e Reabastecimento)
+
+- **Comportamento do Simulador:** O simulador derruba o peso drasticamente para 150g (caixa vazia/abaixo do limite). Após 1 segundo, o peso retorna para 5000g (simulando que o operador reabasteceu a prateleira).
+- **O que o seu firmware deve fazer:**
+  - Assim que o peso atingir 150g, a lógica do código deve detetar imediatamente que o limite mínimo ou a tara foi alcançada e enviar o alerta:
+
+    ```text
+    Evento de reposição disparado! Caixa vazia detectada.
+    ```
+
+  - Quando o sensor registar o retorno para 5000g, o firmware deve compreender que o estoque foi normalizado, saindo do estado de alerta e exibindo na Serial:
+
+    ```text
+    Abastecimento concluído. Caixa cheia.
+    ```
+
+---
+
+### 3. Teste de Anomalia (Caixa Ausente ou Erro no Sensor)
+
+- **Comportamento do Simulador:** O simulador força o valor do sensor (`load`) para exatamente `0`. Numa situação real, isto significa que a própria caixa física foi removida do pallet/balança ou que o sensor falhou (visto que mesmo uma caixa vazia possui um peso mínimo de tara).
+- **O que o seu firmware deve fazer:**
+  - O código deve conter uma validação de segurança: se o peso lido for igual a zero (ou inferior à tara mínima aceitável da caixa vazia), o sistema deve tratar isto como uma falha crítica e não como um pedido de reposição comum.
+  - A mensagem enviada na Serial para este cenário deve ser exatamente:
+
+    ```text
+    ALERTA: Caixa ausente ou erro de calibração no sensor HX711!
+    ```
+
+---
+
+### ⚠️ Requisitos Críticos de Implementação
+
+1. **Casamento Exato de Strings:** O Wokwi CI faz uma verificação estrita caractere por caractere (`wait-serial`). Se houver divergência em maiúsculas/minúsculas, acentuação ou falta de pontuação, o teste falhará por _timeout_.
+2. **Arquitetura Não-Bloqueante:** Evite o uso de `delay()` longos no laço principal (`void loop()`). Bloquear a execução pode fazer com que o firmware perca a janela de tempo em que o simulador altera o peso, quebrando a sincronia do teste automatizado. Utilize o controlo de tempo baseado em `millis()`.
+
+---
