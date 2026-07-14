@@ -71,7 +71,7 @@ Ao ser energizado, o microcontrolador deve configurar os pinos de entrada e saí
 
 ## 4. Alinhamento com a Automação de Testes (CI)
 
-Para garantir que o código desenvolvido esteja correto, o firmware deve responder estritamente aos estímulos configurados nos cenários do Wokwi CI. O código não deve conter funções bloqueantes longas em seu loop principal para que as validações de tempo funcionem perfeitamente.
+Para garantir que o código desenvolvido esteja correto, o firmware deve responder estritamente aos estímulos configurados nos cenários do Wokwi CI. O código não deve conter funções bloqueantes longas em seu loop principal para que as validações de tempo funcionem perfeitamente. Mensagens com letras maiúsculas e minúsculas diferentes do específicado serão consideradas erradas.
 
 ### Parâmetros de Validação no CI
 
