@@ -22,13 +22,12 @@ Para o desenvolvimento e simulação no ambiente Wokwi, os seguintes componentes
 <img width="151" height="269" alt="{530B2ACC-0EF3-438A-A21D-6F977BFB2616}" src="https://github.com/user-attachments/assets/757f01c2-ed9e-4969-b2d1-e63671587d8d" />
 </div>
 
-- **Sensor de Peso (Célula de Carga + HX711):** Mapeado com o ID `hx711`, configurado para responder ao controle de carga (`load`) em gramas ($g$).
+- **Sensor de Peso (Célula de Carga + HX711):** Mapeado com o ID `hx711`, configurado para responder ao controle de carga (`load`) em gramas ($g$). _(Nota: Altere o ID no .json de forma textual)._
+
 
 <div align="center">
 <img width="321" height="193" alt="{81FCE4BA-D114-40BB-AEC7-C5F4B857B16B}" src="https://github.com/user-attachments/assets/95139365-d878-4a7d-913d-dd1aeec81311" />
 </div>
-
-_(Nota: Altere o ID no .json de forma textual)._
 
 - **Interface de Comunicação:** Saída Serial (UART) para transmissão de logs de status, alertas e telemetria para a esteira de integração contínua (CI).
 
