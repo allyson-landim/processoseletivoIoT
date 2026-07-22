@@ -18,6 +18,9 @@ total_pecas = 0
 estado_bloqueado = False
 alerta_emitido = False
 
+# NOVA VARIÁVEL: Trava para detectar a borda do botão e evitar repetição
+botao_pressionado = False 
+
 tempo_inicio_bloqueio = 0
 ultimo_tempo_botao = 0
 
@@ -38,19 +41,26 @@ print("Contador de Producao Inicializado")
 while True:
     tempo_atual = time.ticks_ms()
     
-    # 1. Rotina de Reset de Turno (Botão com Debounce)
+    # 1. Rotina de Reset de Turno (Com Detecção de Borda e Debounce)
     if pino_botao.value() == 0:
-        if time.ticks_diff(tempo_atual, ultimo_tempo_botao) > DEBOUNCE_MS:
+        # Se o botão foi apertado AGORA (borda de descida)
+        if not botao_pressionado and time.ticks_diff(tempo_atual, ultimo_tempo_botao) > DEBOUNCE_MS:
+            botao_pressionado = True
             total_pecas = 0
             estado_bloqueado = False
             alerta_emitido = False
             print("Turno resetado com sucesso. Contadores zerados.")
             ultimo_tempo_botao = tempo_atual
+    else:
+        # Se o botão foi SOLTO (borda de subida)
+        if botao_pressionado and time.ticks_diff(tempo_atual, ultimo_tempo_botao) > DEBOUNCE_MS:
+            botao_pressionado = False
+            ultimo_tempo_botao = tempo_atual
 
     # 2. Leitura do Sensor Óptico
     valor_adc = pino_ldr.read()
     
-    # ATUALIZAÇÃO: Se a luz é obstruída (50 lux), a resistência sobe e a tensão no pino AO sobe.
+    # Se a luz é obstruída (50 lux), a resistência sobe e a tensão no pino AO sobe.
     luz_obstruida = valor_adc > LIMIAR_ADC
     
     # Transição de Descida: A peça começou a interromper o feixe
@@ -73,3 +83,4 @@ while True:
 
     # Breve pausa para não sobrecarregar a CPU
     time.sleep_ms(20)
+    
