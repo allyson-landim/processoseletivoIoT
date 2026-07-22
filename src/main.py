@@ -22,7 +22,7 @@ tempo_inicio_bloqueio = 0
 ultimo_tempo_botao = 0
 
 # Limiares 
-LIMIAR_ADC = 2500          # Limite empírico para detectar a queda de 800 lux para 50 lux
+LIMIAR_ADC = 2000          # Limite para detectar a queda de luz no divisor de tensão do módulo
 TEMPO_PARADA_MS = 5000     # 5 segundos para caracterizar micro-parada
 DEBOUNCE_MS = 250          # Tempo de debounce do botão
 
@@ -49,7 +49,9 @@ while True:
 
     # 2. Leitura do Sensor Óptico
     valor_adc = pino_ldr.read()
-    luz_obstruida = valor_adc < LIMIAR_ADC
+    
+    # ATUALIZAÇÃO: Se a luz é obstruída (50 lux), a resistência sobe e a tensão no pino AO sobe.
+    luz_obstruida = valor_adc > LIMIAR_ADC
     
     # Transição de Descida: A peça começou a interromper o feixe
     if luz_obstruida and not estado_bloqueado:
@@ -69,5 +71,5 @@ while True:
             print("Alerta: Micro-parada detectada!")
             alerta_emitido = True
 
-    # Breve pausa para não sobrecarregar a CPU (mantém a arquitetura não-bloqueante)
+    # Breve pausa para não sobrecarregar a CPU
     time.sleep_ms(20)
