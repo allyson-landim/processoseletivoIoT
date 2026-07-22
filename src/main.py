@@ -18,7 +18,6 @@ total_pecas = 0
 estado_bloqueado = False
 alerta_emitido = False
 
-# NOVA VARIÁVEL: Trava para detectar a borda do botão e evitar repetição
 botao_pressionado = False 
 
 tempo_inicio_bloqueio = 0
@@ -27,7 +26,9 @@ ultimo_tempo_botao = 0
 # Limiares 
 LIMIAR_ADC = 2000          # Limite para detectar a queda de luz no divisor de tensão do módulo
 TEMPO_PARADA_MS = 5000     # 5 segundos para caracterizar micro-parada
-DEBOUNCE_MS = 250          # Tempo de debounce do botão
+
+# ATUALIZAÇÃO: Debounce reduzido para 50ms para encaixar na janela de 200ms do simulador CI
+DEBOUNCE_MS = 50          
 
 # ==========================================
 # Inicialização
@@ -41,20 +42,20 @@ print("Contador de Producao Inicializado")
 while True:
     tempo_atual = time.ticks_ms()
     
-    # 1. Rotina de Reset de Turno (Com Detecção de Borda e Debounce)
+    # 1. Rotina de Reset de Turno (Reset na borda de subida / ao soltar o botão)
     if pino_botao.value() == 0:
-        # Se o botão foi apertado AGORA (borda de descida)
+        # Botão está sendo pressionado (pressed: 1)
         if not botao_pressionado and time.ticks_diff(tempo_atual, ultimo_tempo_botao) > DEBOUNCE_MS:
             botao_pressionado = True
+            ultimo_tempo_botao = tempo_atual
+    else:
+        # Botão foi solto (pressed: 0) -> Ação de zerar ocorre aqui!
+        if botao_pressionado and time.ticks_diff(tempo_atual, ultimo_tempo_botao) > DEBOUNCE_MS:
+            botao_pressionado = False
             total_pecas = 0
             estado_bloqueado = False
             alerta_emitido = False
             print("Turno resetado com sucesso. Contadores zerados.")
-            ultimo_tempo_botao = tempo_atual
-    else:
-        # Se o botão foi SOLTO (borda de subida)
-        if botao_pressionado and time.ticks_diff(tempo_atual, ultimo_tempo_botao) > DEBOUNCE_MS:
-            botao_pressionado = False
             ultimo_tempo_botao = tempo_atual
 
     # 2. Leitura do Sensor Óptico
